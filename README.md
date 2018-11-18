@@ -51,7 +51,7 @@
 - 展示组织已创建活动相关信息
 - 结束活动
   * 请求删除活动接口
-    * `api/deleteActivity?session_id=xxx&activity=xxx`
+    * `api/deleteActivity?activity=xxx`
 - 信息反馈 ( 点击进入活动信息反馈页 )
 - 二维码保存到本地 
 - 继续编辑 ( 进入领奖活动创建页 ) 
@@ -81,16 +81,16 @@
     * 调用后台向学生 ( 微信推送消息 or 短信推送消息 ) 的接口
       * `api/sendMessage?type=wechat.sms`
     * 从后台返回推送情况的相关数据
-    * 将 领奖类型、姓名、学院、学号、电话、奖品类型、推送情况、奖品情况 整合为 **聚合数据一 ** 
+    * 将 领奖类型、姓名、学院、学号、电话、奖品类型、推送情况、奖品情况 整合为 **聚合数据一** 
     * 发送 POST 请求，将 **聚合数据一** 传输到服务端
-      * `api/sendDataOne?session_id=xxx&activity=xxx&type=pointed` 
+      * `api/sendDataOne?activity=xxx&type=pointed` 
   * **生成二维码图片的 URL** 
     * 该图片内容应包括 : 活动名称、领奖类型、二维码
-    * 只存在两种二维码，扫码后请求相应接口 
+    * 只存在两种二维码，扫码后请求相应接口
       * 指定类型：`api/type/activity/session_id` 
       * 非指定类型：`api/reward/type/activity/session_id` 
   * 将 活动名称、二维码 URL、活动创建时间 整合为 **聚合数据二** 
-    * `api/sendDataTwo?session_id=xxx` 
+    * `api/sendDataTwo` 
   * 发送 **聚合数据二** 到服务端 
 
 **BE** 
@@ -136,7 +136,7 @@
 **BE**
 
 * 基于 **数据表三** 实现学生领奖信息的分页查询接口
-  * `api/getDataThree?session_id=xxx&activity=xxx&page=1`
+  * `api/getDataThree?activity=xxx&page=1` 
 
 #### 线下图片扫码 
 

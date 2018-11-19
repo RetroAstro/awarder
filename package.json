@@ -1,7 +1,7 @@
 {
-  "name": "reward-tool",
+  "name": "awarder",
   "version": "1.0.0",
-  "description": "reward-tool background management system",
+  "description": "award background management system",
   "author": "RetroAstro",
   "license": "MIT",
   "scripts": {},

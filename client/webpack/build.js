@@ -1,9 +1,9 @@
 const ora = require('ora')
 const chalk = require('chalk')
 const webpack = require('webpack')
-const webpackConfig = require('../config/webpack.config.prod')
+const webpackConfig = require('./webpack.config.prod')
 
-const spinner = ora('building for production...')
+const spinner = ora('Building for production...🚀  🚀  🚀')
 
 spinner.start()
 
@@ -19,5 +19,5 @@ webpack(webpackConfig, function (err, stats) {
       chunkModules: false
     }) + '\n\n'
   )
-  console.log(chalk.magenta('Build complete.\n'))
+  console.log(chalk.yellowBright('Building is finished ! 😍  🎉  😆'))
 })

@@ -5,8 +5,8 @@
   "author": "RetroAstro",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config client/config/webpack.config.dev.js",
-    "build": "npm run clean && cross-env NODE_ENV=production node client/config/build.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config client/webpack/webpack.config.dev.js",
+    "build": "npm run clean && cross-env NODE_ENV=production node client/webpack/build.js",
     "clean": "rimraf client/dist",
     "lint": "eslint --ext .js --ext .jsx -- . ",
     "lint-fix": "eslint --ext .js --ext .jsx --fix -- . ",

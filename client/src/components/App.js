@@ -1,7 +1,8 @@
 import React from 'react'
+import './app.scss'
 
 const App = () => (
-  <div>
+  <div className="colorful">
     Hello World !
   </div>
 )

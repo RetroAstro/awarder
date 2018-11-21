@@ -1,8 +1,9 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 
-const resolve = dir => path.join(__dirname, '..', dir)
+const resolve = dir => path.join(__dirname, '../', dir)
 
 module.exports = {
   target: 'web',
@@ -13,16 +14,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [
-      resolve('src'),
-      resolve('node_modules')
-    ],
-    alias: {
-
-    }
+    modules: [resolve('src'), resolve('../node_modules')],
+    alias: {}
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         enforce: 'pre',
@@ -32,7 +29,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: resolve('src'),
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
       {
         test: /\.(scss|sass)$/,
@@ -52,14 +49,15 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|ico)(\?.*)?$/,
-        use: [{
+        use: [
+          {
             loader: 'url-loader',
             options: {
               limit: 15000,
               name: 'img/[name].[ext]',
               publicPath: './'
             }
-          },
+          }
           // {
           //     loader: 'image-webpack-loader',
           //     options: {

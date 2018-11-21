@@ -6,13 +6,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const baseWebpackConfig = require('./webpack.base.conf')
+const baseWebpackConfig = require('./webpack.config.base')
 
 const webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   output: {
     filename: 'js/[name].[chunkhash].js',
     chunkFilename: 'js/[name].[chunkhash].chunk.js',
+    publicPath: './'
   },
   optimization: {
     minimize: true,
@@ -21,18 +22,18 @@ const webpackConfig = merge(baseWebpackConfig, {
         terserOptions: {
           warnings: false,
           compress: {
-            comparisons: false,
+            comparisons: false
           },
           parse: {},
           mangle: true,
           output: {
             comments: false,
-            ascii_only: true,
-          },
+            ascii_only: true
+          }
         },
         parallel: true,
         cache: true,
-        sourceMap: true,
+        sourceMap: true
       }),
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
@@ -54,26 +55,26 @@ const webpackConfig = merge(baseWebpackConfig, {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
-          chunks: 'all',
+          chunks: 'all'
         },
         main: {
           chunks: 'all',
           minChunks: 2,
           reuseExistingChunk: true,
-          enforce: true,
-        },
-      },
+          enforce: true
+        }
+      }
     },
-    runtimeChunk: true,
+    runtimeChunk: true
   },
   performance: false,
-  devtool: 'source-map',
+  // devtool: 'source-map',
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+      chunkFilename: 'css/[name].[contenthash:8].chunk.css'
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/index.html'),
@@ -87,16 +88,16 @@ const webpackConfig = merge(baseWebpackConfig, {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true,
+        minifyURLs: true
       },
-      inject: true,
+      inject: true
     }),
     new CompressionPlugin({
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
-      minRatio: 0.8,
-    }),
+      minRatio: 0.8
+    })
   ]
 })
 

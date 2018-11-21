@@ -1,5 +1,5 @@
 /**
- * When building is finished , 
+ * When building is finished ,
  * it can automatically separate index.html from static files .
  * client => server
  */

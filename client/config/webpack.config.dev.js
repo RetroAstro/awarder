@@ -11,6 +11,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     chunkFilename: '[name].chunk.js'
   },
   devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    port: 3000,
+    host: 'localhost',
+    hot: true,
+    compress: true,
+    open: true,
+    quiet: true,
+    disableHostCheck: true
+  },
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),

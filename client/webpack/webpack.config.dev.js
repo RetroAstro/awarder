@@ -24,7 +24,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../src/index.html'),
+      template: path.join(__dirname, '../public/index.html'),
       inject: true
     })
   ]

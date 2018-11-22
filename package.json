@@ -12,9 +12,13 @@
     "lint-fix": "eslint --ext .js --ext .jsx --fix -- . ",
     "lint-scss": "stylelint client/src",
     "lint-scss-fix": "stylelint client/src --fix",
-    "precommit": "npm run lint && npm run lint-scss"
+    "precommit": "npm run lint && npm run lint-scss",
+    "server": "node server/index.js"
   },
   "dependencies": {
+    "fs-extra": "^7.0.1",
+    "koa": "^2.6.2",
+    "koa-static": "^5.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
@@ -22,6 +26,7 @@
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",

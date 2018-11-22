@@ -1,8 +1,16 @@
-import { foo, bar } from './a'
-import person from './b'
+import fs from 'fs'
+import path from 'path'
+import Koa from 'koa'
+import serve from 'koa-static'
+import { PORT } from '../config/index'
 
-const log = console.log.bind()
+const app = new Koa()
 
-log(foo() + bar())
+app.use(serve(path.join(__dirname, '../../client/dist')))
 
-log(`name: ${person.name}`, `age: ${person.age}`)
+app.use(async (ctx) => {
+  const file = path.join(__dirname, '../../client/dist/index.html')
+  fs.createReadStream(file).pipe(ctx.res)
+})
+
+app.listen(PORT)

@@ -14,3 +14,5 @@ app.use(async (ctx) => {
 })
 
 app.listen(PORT)
+
+export default app

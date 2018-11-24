@@ -1,13 +1,13 @@
-import lazy from './lazy'
+import { Login, Display } from './lazy'
 
 const routes = [
   {
     path: '/',
-    component: lazy.Login
+    component: Login
   },
   {
     path: '/display',
-    component: lazy.Display
+    component: Display
   }
 ]
 

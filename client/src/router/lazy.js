@@ -1,18 +1,12 @@
-import React, { lazy, Suspense } from 'react'
+import Loadable from 'react-loadable'
 import Loading from '../common/Loading'
 
-const Login = lazy(() => import('@comp/Login/index'))
-const Display = lazy(() => import('@comp/Display/index'))
+export const Login = Loadable({
+  loader: () => import('@comp/Login/index'),
+  loading: Loading
+})
 
-export default {
-  Login: () => (
-    <Suspense fallback={<Loading />}>
-      <Login />
-    </Suspense>
-  ),
-  Display: () => (
-    <Suspense fallback={<Loading />}>
-      <Display />
-    </Suspense>
-  )
-}
+export const Display = Loadable({
+  loader: () => import('@comp/Display/index'),
+  loading: Loading
+})

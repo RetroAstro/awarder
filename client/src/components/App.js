@@ -1,10 +1,6 @@
 import React from 'react'
-import './app.scss'
+import View from '../router/index'
 
-const App = () => (
-  <div className="colorful">
-    Hello World !
-  </div>
-)
+const App = () => <View />
 
 export default App

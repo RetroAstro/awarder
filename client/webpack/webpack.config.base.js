@@ -15,7 +15,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [resolve('src'), resolve('../node_modules')],
-    alias: {}
+    alias: {
+      '@comp': resolve('src/components')
+    }
   },
   module: {
     rules: [

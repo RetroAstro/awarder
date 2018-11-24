@@ -19,6 +19,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     open: true,
     quiet: true,
     disableHostCheck: true
+    // historyApiFallback: true
   },
   plugins: [
     new webpack.NamedModulesPlugin(),

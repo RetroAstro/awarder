@@ -20,7 +20,11 @@
     "koa": "^2.6.2",
     "koa-static": "^5.0.0",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "react-redux": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -70,6 +74,6 @@
   "browserslist": [
     "> 1%",
     "last 5 versions",
-    "not ie <= 11"
+    "not ie <= 10"
   ]
 }

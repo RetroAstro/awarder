@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Wrapper from './Wrapper'
+import Submit from '@comt/Submit'
 
-const Login = () => (
-  <div>This is login page.</div>
-)
+class Login extends Component {
+  render () {
+    return (
+      <Wrapper>
+        <Submit />
+      </Wrapper>
+    )
+  }
+}
 
 export default Login

@@ -16,6 +16,7 @@
     "server": "node server/index.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "fs-extra": "^7.0.1",
     "koa": "^2.6.2",
     "koa-static": "^5.0.0",

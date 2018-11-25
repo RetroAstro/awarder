@@ -4,6 +4,7 @@
   "rules": {
     "block-no-empty": null,
     "color-no-invalid-hex": true,
-    "unit-whitelist": ["em", "rem", "%", "px", "vw", "vh"]
+    "unit-whitelist": ["em", "rem", "%", "px", "vw", "vh"],
+    "selector-list-comma-newline-after": ["never-multi-line"]
   }
 }

@@ -16,17 +16,18 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     modules: [resolve('src'), resolve('../node_modules')],
     alias: {
-      '@comp': resolve('src/components')
+      '@comp': resolve('src/components'),
+      '@comt': resolve('src/containers')
     }
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        loader: 'eslint-loader'
-      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   enforce: 'pre',
+      //   loader: 'eslint-loader'
+      // },
       {
         test: /\.(js|jsx)$/,
         include: resolve('src'),

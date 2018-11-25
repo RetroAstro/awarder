@@ -1,5 +1,5 @@
 import React from 'react'
-import View from '../router/index'
+import View from '../router'
 
 const App = () => <View />
 

@@ -1,14 +1,24 @@
 import React from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import routes from './routes'
+
+const Auth = () => {
+  return true
+}
 
 const DynamicRoute = route => (
   <Route
     exact
     path={route.path}
-    render={props => (
-      <route.component {...props} routes={route.routes} />
-    )}
+    render={props =>
+      props.location.pathname !== '/' && !Auth()
+        ? <Redirect
+          to={{
+            pathname: '/',
+            state: { from: props.location }
+          }}
+        /> : <route.component {...props} routes={route.routes} />
+    }
   />
 )
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Wrapper = (props) => (
-  <div className="container">
+  <div className="container translate-center">
     {props.children}
   </div>
 )

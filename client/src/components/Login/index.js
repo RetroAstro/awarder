@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
 import Submit from '@comt/Submit'
+import './login.scss'
 
-class Login extends Component {
-  render () {
-    return (
-      <Wrapper>
-        <Submit />
-      </Wrapper>
-    )
-  }
-}
+const Login = () => (
+  <Wrapper>
+    <Submit />
+  </Wrapper>
+)
 
 export default Login

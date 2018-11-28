@@ -1,7 +1,13 @@
 import React from 'react'
+import Header from './Header'
+import MainSection from './MainSection'
+import './display.scss'
 
-const Display = () => {
-  return (<div>This is display page.</div>)
-}
+const Display = () => (
+  <>
+    <Header />
+    <MainSection />
+  </>
+)
 
 export default Display

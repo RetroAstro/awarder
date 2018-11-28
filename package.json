@@ -11,16 +11,35 @@
     "lint": "eslint --ext .js --ext .jsx -- . ",
     "lint-fix": "eslint --ext .js --ext .jsx --fix -- . ",
     "lint-scss": "stylelint client/src",
-    "lint-scss-fix": "stylelint client/src --fix",
-    "precommit": "npm run lint && npm run lint-scss",
+    "lint-scss-fix": "stylelint client/src/**/*.scss --fix",
     "server": "node server/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "classnames": "^2.2.6",
-    "fs-extra": "^7.0.1",
+    "bcryptjs": "^2.4.3",
     "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-csrf": "^3.0.6",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.0",
     "koa-static": "^5.0.0",
+    "mongoose": "^5.3.13",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

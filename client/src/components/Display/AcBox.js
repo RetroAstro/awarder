@@ -16,7 +16,13 @@ const AcBox = () => (
         </div>
       </div>
     </div>
-    <div className="ac-bottom">
+    <div className="ac-bottom flex-between">
+      <div className="end-btn flex-center">
+        <span>结束活动</span>
+      </div>
+      <div className="feedback-btn flex-center">
+        <span>信息反馈</span>
+      </div>
     </div>
   </div>
 )

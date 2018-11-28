@@ -1,7 +1,9 @@
-export const requestLogin = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve('Login success !!!')
-    }, 1000)
+import axios from 'axios'
+
+export const requestLogin = (data) => {
+  return axios({
+    method: 'POST',
+    url: '/login',
+    data: data
   })
 }

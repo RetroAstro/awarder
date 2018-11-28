@@ -6,6 +6,7 @@ import session from 'koa-session'
 import Csrf from 'koa-csrf'
 import serve from 'koa-static'
 import { PORT, appKey, CONFIG, DB } from '../config'
+import { error } from '../middlewares/error_handler'
 import { connect } from '../middlewares/connect'
 import router from '../routes/user'
 
@@ -14,6 +15,8 @@ const app = new Koa()
 app.keys = [appKey]
 
 connect(DB)
+
+app.use(error())
 
 app.use(logger())
 

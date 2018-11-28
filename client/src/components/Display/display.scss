@@ -145,6 +145,33 @@
             text-align: center;
           }
         }
+
+        & .ac-bottom {
+          width: 100%;
+
+          & > div {
+            width: 75px;
+            height: 30px;
+            border-radius: 6px;
+            border: 1px solid #d9d9d9;
+            color: rgba(0, 0, 0, 0.65);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              color: #40a9ff;
+              border-color: #40a9ff;
+            }
+
+            & > span {
+              font-size: 14px;
+            }
+          }
+
+          & .end-btn {
+
+          }
+        }
       }
     }
   }

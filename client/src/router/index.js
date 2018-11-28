@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import routes from './routes'
 
 const Auth = () => {
+  // return !!document.cookie.isLogined
   return true
 }
 

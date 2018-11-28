@@ -12,7 +12,7 @@ const receiveRequest = (data) => ({
   data: data
 })
 
-export const login = () => dispatch => {
+export const login = (data) => dispatch => {
   dispatch(startRequest())
-  return requestLogin().then((res) => dispatch(receiveRequest(res)))
+  return requestLogin(data).then((res) => dispatch(receiveRequest(res)))
 }

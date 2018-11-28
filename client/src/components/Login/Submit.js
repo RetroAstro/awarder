@@ -1,11 +1,18 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 const Submit = ({ login, data }) => {
   var orz, psw, orz_err, psw_err
   var handleSubmit = () => {
     if (orz.value === '') orz_err.classList.add('active')
     if (psw.value === '') psw_err.classList.add('active')
-    // orz.value && psw.value && login()
+    orz.value && psw.value && login(JSON.stringify({
+      orz_name: orz.value,
+      password: psw.value
+    }))
+  }
+  var handleLoginFailed = () => {
+    console.log('Login Failed .')
   }
   return (
     <>
@@ -31,6 +38,10 @@ const Submit = ({ login, data }) => {
       <div className="login-btn flex-center" onClick={handleSubmit}>
         <span>登录</span>
       </div>
+      {() => data.loginCode
+        ? <Redirect to={{ pathname: '/display' }} /> : data.state === 'login failed'
+          ? handleLoginFailed() : null
+      }
     </>
   )
 }

@@ -1,4 +1,8 @@
 export const initialState = {
   loading: false,
-  data: ''
+  data: {
+    state: '',
+    loginCode: '',
+    token: ''
+  }
 }

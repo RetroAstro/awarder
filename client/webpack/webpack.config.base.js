@@ -47,7 +47,15 @@ module.exports = {
             }
           },
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.join(__dirname, '../src/scss/variable.scss')
+              ]
+            }
+          }
         ]
       },
       {

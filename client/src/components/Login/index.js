@@ -5,7 +5,7 @@ import './login.scss'
 
 const Login = () => (
   <Wrapper>
-    <Submit />
+    <Submit/>
   </Wrapper>
 )
 

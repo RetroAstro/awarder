@@ -1,6 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
+const IsRedirect = data => data.loginCode ? <Redirect to={{ pathname: '/display' }} /> : null
+
 const Submit = ({ login, data }) => {
   var orz, psw, orz_err, psw_err
   var handleSubmit = () => {
@@ -38,10 +40,8 @@ const Submit = ({ login, data }) => {
       <div className="login-btn flex-center" onClick={handleSubmit}>
         <span>登录</span>
       </div>
-      {() => data.loginCode
-        ? <Redirect to={{ pathname: '/display' }} /> : data.state === 'login failed'
-          ? handleLoginFailed() : null
-      }
+      <IsRedirect data={data} />
+      { data.state === 'login failed' ? handleLoginFailed() : null }
     </>
   )
 }

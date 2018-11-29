@@ -1,5 +1,5 @@
 
-export const errorHandler = (ctx, next) => {
+export const error = async (ctx, next) => {
   try {
     await next()
   } catch (err) {

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import Submit from '@comp/Login/Submit'
 import { login } from '../actions'
 
@@ -7,10 +8,12 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  login: () => dispatch(login())
+  login: (data) => dispatch(login(data))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Submit)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Submit)
+)

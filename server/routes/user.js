@@ -12,14 +12,13 @@ router.get('/', async (ctx) => {
   ctx.body = fs.createReadStream(join(__dirname, '../../client/dist/main.html'))
 })
 
-router.get('/login', async (ctx) => {
-  const { orz_name, password } = ctx.request.body
-  if (checkUser(orz_name, password)) {
-    ctx.cookies.set('isLogined', 'yes')
+router.post('/login', async (ctx) => {
+  if (await checkUser(ctx.request.body)) {
+    ctx.cookies.set('isLogined', 'yes', { httpOnly: false })
     ctx.body = JSON.stringify({
       state: 'login success',
       loginCode: 1,
-      token: ctx.csrf
+      token: ''
     })
   } else {
     ctx.body = JSON.stringify({

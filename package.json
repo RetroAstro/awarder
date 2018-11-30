@@ -12,7 +12,7 @@
     "lint-fix": "eslint --ext .js --ext .jsx --fix -- . ",
     "lint-scss": "stylelint client/src",
     "lint-scss-fix": "stylelint client/src/**/*.scss --fix",
-    "server": "node server/index.js"
+    "server": "nodemon server/index.js"
   },
   "husky": {
     "hooks": {
@@ -78,6 +78,7 @@
     "lint-staged": "^8.1.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.10.0",
+    "nodemon": "^1.18.7",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "ora": "^3.0.0",
     "postcss-loader": "^3.0.0",

@@ -61,12 +61,28 @@
     cursor: pointer;
     margin-top: 35px;
     transition: all 0.3s ease-in-out;
+    position: relative;
 
     & > span {
       color: #fff;
       font-size: 17px;
       font-weight: 550;
       letter-spacing: 6px;
+    }
+
+    & .login-failed {
+      position: absolute;
+      left: 50%;
+      top: 66px;
+      transform: translateX(-50%);
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      color: #f5222d;
+      visibility: hidden;
+
+      &.active.show {
+        visibility: visible;
+      }
     }
 
     &:hover {

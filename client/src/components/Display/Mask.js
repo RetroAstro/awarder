@@ -20,7 +20,10 @@ const Mask = (props, ref) => (
       </div>
       <div
         className="save-btn flex-center"
-        onClick={() => download.click()}
+        onClick={() => {
+          download.click()
+          props.handleClick('hide')
+        }}
       >
         <span className="save">点击保存</span>
       </div>

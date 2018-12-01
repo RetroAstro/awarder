@@ -11,10 +11,10 @@ class Submit extends Component {
   handleSubmit = () => {
     if (this.orz.value === '') this.orz_err.classList.add('active')
     if (this.psw.value === '') this.psw_err.classList.add('active')
-    this.orz.value && this.psw.value && this.props.login(JSON.stringify({
+    this.orz.value && this.psw.value && this.props.login({
       orz_name: this.orz.value,
       password: this.psw.value
-    }))
+    })
     setTimeout(() => this.setState({ status: true }), 200)
   }
   render () {

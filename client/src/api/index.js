@@ -1,12 +1,22 @@
 import axios from 'axios'
 
-export const requestLogin = (data) => {
+const getToken = async () => {
+  const { data } = await axios.get('/token')
+  return data
+}
+
+export const requestLogin = async (data) => {
+  const token = await getToken()
   return axios({
     method: 'POST',
     url: '/login',
     headers: {
       'Content-Type': 'application/json'
     },
-    data: data
+    data: JSON.stringify(
+      Object.assign({
+        _csrf: token
+      }, data)
+    )
   })
 }

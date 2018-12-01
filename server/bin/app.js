@@ -24,7 +24,7 @@ app.use(parser())
 
 app.use(session(CONFIG, app))
 
-// app.use(new Csrf())
+app.use(new Csrf())
 
 app.use(serve(path.join(__dirname, '../../client/dist')))
 

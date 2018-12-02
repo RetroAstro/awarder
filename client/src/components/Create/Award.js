@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Award = (props) => (
+  <>
   <div className="award-type flex-start">
     <div className="type">领奖类型</div>
     <div className="select-wrap">
@@ -21,6 +22,14 @@ const Award = (props) => (
       </div>
     </div>
   </div>
+  <div className="award-name flex-start">
+    <div className="name">奖品名称</div>
+    <input
+      type="text"
+      className="name-ipt"
+    />
+  </div>
+  </>
 )
 
 export default Award

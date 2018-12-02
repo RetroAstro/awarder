@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Award from './Award'
+import Upload from './Upload'
+import Publish from './Publish'
+import Delete from './Delete'
 
 class TypeBox extends Component {
   constructor (props) {
@@ -18,6 +21,9 @@ class TypeBox extends Component {
     return (
       <div className="type-box">
         <Award selist={this.state.selist} />
+        <Upload />
+        <Publish />
+        <Delete />
       </div>
     )
   }

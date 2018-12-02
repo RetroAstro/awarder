@@ -10,3 +10,8 @@ export const Display = Loadable({
   loader: () => import('@comp/Display'),
   loading: Loading
 })
+
+export const Create = Loadable({
+  loader: () => import('@comp/Create'),
+  loading: Loading
+})

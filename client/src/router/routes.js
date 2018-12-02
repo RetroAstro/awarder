@@ -1,4 +1,4 @@
-import { Login, Display } from './lazy'
+import { Login, Display, Create } from './lazy'
 
 const routes = [
   {
@@ -8,6 +8,10 @@ const routes = [
   {
     path: '/display',
     component: Display
+  },
+  {
+    path: '/create',
+    component: Create
   }
 ]
 

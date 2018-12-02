@@ -1,229 +1,232 @@
-.header {
-  height: 70px;
-  position: relative;
-  box-shadow: 0 2px 8px #f0f1f2;
-  margin-bottom: 110px;
+.display {
+  & .header {
+    height: 90px;
+    position: relative;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 110px;
+    background-color: #fff;
 
-  & .middle {
-    min-width: 1200px;
-    width: 95%;
+    & .middle {
+      min-width: 1200px;
+      width: 95%;
 
-    & .orz-name {
-      font-size: 26px;
-      font-weight: 550;
-      color: #34495e;
-    }
-
-    .search-wrap {
-      width: 500px;
-      height: 40px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      transition: all 0.3s ease-in-out;
-
-      &.active {
-        border-color: #66afe9;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-      }
-
-      & .search-ipt {
-        height: 100%;
-        flex: 9;
-        padding: 10px;
-        border-radius: 4px;
-        font-size: 15px;
+      & .orz-name {
+        font-size: 26px;
+        font-weight: 550;
         color: #34495e;
       }
 
-      & .search-btn {
-        height: 100%;
-        flex: 1;
-        cursor: pointer;
+      .search-wrap {
+        width: 500px;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        transition: all 0.3s ease-in-out;
 
-        & > i {
-          width: 22px;
-          height: 22px;
-          background-image: url('../../assets/search.png');
+        &.active {
+          border-color: #66afe9;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+
+        & .search-ipt {
+          height: 100%;
+          flex: 9;
+          padding: 10px;
+          border-radius: 4px;
+          font-size: 15px;
+          color: #34495e;
+        }
+
+        & .search-btn {
+          height: 100%;
+          flex: 1;
+          cursor: pointer;
+
+          & > i {
+            width: 22px;
+            height: 22px;
+            background-image: url('../../assets/search.png');
+          }
+        }
+      }
+
+      & .sign-out-btn {
+        width: 116px;
+        height: 35px;
+        border-radius: 6px;
+        border: 1px solid #d9d9d9;
+        color: rgba(0, 0, 0, 0.65);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: #40a9ff;
+          border-color: #40a9ff;
+        }
+      }
+    }
+  }
+
+  & .main {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -75px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 45px;
+      height: 45px;
+      background-image: url('../../assets/add.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      cursor: pointer;
+    }
+
+    & .section {
+      width: 1200px;
+      margin: auto;
+
+      & .sec-row {
+        margin-bottom: 20px;
+
+        & > div {
+          width: 230px;
+          height: 230px;
+          border-radius: 4px;
+          box-shadow: rgba(0, 21, 41, 0.12) 0 2px 6px;
+          margin-right: 103px;
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: rgba(0, 21, 41, 0.12) 0 20px 25px, rgba(0, 21, 41, 0.12) 0 -3px 25px -3px;
+          }
+        }
+
+        & > div:last-child {
+          margin-right: 0;
+        }
+
+        & .ac-box {
+          padding: 12px;
+          background-color: #fff;
+
+          & .ac-top {
+            width: 100%;
+
+            & .state {
+              font-size: 20px;
+              color: #34495e;
+            }
+
+            & .qrcode {
+              width: 25px;
+              height: 25px;
+              background-image: url('../../assets/qrcode.png');
+            }
+          }
+
+          & .ac-middle {
+            width: 100%;
+            height: 150px;
+
+            & .ac-name {
+              font-size: 20px;
+              font-weight: bold;
+              color: #34495e;
+              margin-bottom: 10px;
+            }
+
+            & .ac-create-time {
+              font-size: 16px;
+              text-align: center;
+            }
+          }
+
+          & .ac-bottom {
+            width: 100%;
+
+            & > div {
+              width: 75px;
+              height: 30px;
+              border-radius: 6px;
+              border: 1px solid #d9d9d9;
+              color: rgba(0, 0, 0, 0.65);
+              cursor: pointer;
+              transition: all 0.3s ease-in-out;
+
+              &:hover {
+                color: #40a9ff;
+                border-color: #40a9ff;
+              }
+
+              & > span {
+                font-size: 14px;
+              }
+            }
+          }
         }
       }
     }
 
-    & .sign-out-btn {
-      width: 116px;
-      height: 35px;
-      border-radius: 6px;
-      border: 1px solid #d9d9d9;
-      color: rgba(0, 0, 0, 0.65);
-      cursor: pointer;
+    & .mask {
       transition: all 0.3s ease-in-out;
+      opacity: 0;
+      visibility: hidden;
 
-      &:hover {
-        color: #40a9ff;
-        border-color: #40a9ff;
+      &.active {
+        visibility: visible;
+        opacity: 1;
+
+        & .save-box {
+          animation: fadeInUp 0.6s ease-in-out;
+        }
       }
-    }
-  }
-}
 
-.main {
-  position: relative;
+      & .save-box {
+        width: 380px;
+        height: 380px;
+        border-radius: 6px;
+        background: #fff;
+        padding: 20px;
+        padding-top: 0;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -75px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 45px;
-    height: 45px;
-    background-image: url('../../assets/add.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    cursor: pointer;
-  }
+        & .qrcode-box {
+          width: 100%;
+          flex: 8.8;
 
-  & .section {
-    width: 1200px;
-    margin: auto;
-    height: 900px;
+          & .code {
+            width: 240px;
+            height: 240px;
+            background-image: url('../../assets/code.png');
+          }
+        }
+      }
 
-    & .sec-row {
-      margin-bottom: 20px;
-
-      & > div {
-        width: 230px;
-        height: 230px;
-        border-radius: 4px;
-        box-shadow: rgba(0, 21, 41, 0.12) 0 2px 6px;
-        margin-right: 103px;
+      & .save-btn {
+        width: 40%;
+        margin: auto;
+        flex: 1.2;
+        background-color: $info;
+        border-radius: 6px;
         transition: all 0.3s ease-in-out;
+        opacity: 1;
         cursor: pointer;
 
         &:hover {
-          transform: translateY(-10px);
-          box-shadow: rgba(0, 21, 41, 0.12) 0 20px 25px, rgba(0, 21, 41, 0.12) 0 -3px 25px -3px;
-        }
-      }
-
-      & > div:last-child {
-        margin-right: 0;
-      }
-
-      & .ac-box {
-        padding: 12px;
-
-        & .ac-top {
-          width: 100%;
-
-          & .state {
-            font-size: 20px;
-            color: #34495e;
-          }
-
-          & .qrcode {
-            width: 25px;
-            height: 25px;
-            background-image: url('../../assets/qrcode.png');
-          }
+          opacity: 0.8;
         }
 
-        & .ac-middle {
-          width: 100%;
-          height: 150px;
-
-          & .ac-name {
-            font-size: 20px;
-            font-weight: bold;
-            color: #34495e;
-            margin-bottom: 10px;
-          }
-
-          & .ac-create-time {
-            font-size: 16px;
-            text-align: center;
-          }
+        & .save {
+          color: #fff;
+          font-size: 19.5px;
+          letter-spacing: 2px;
         }
-
-        & .ac-bottom {
-          width: 100%;
-
-          & > div {
-            width: 75px;
-            height: 30px;
-            border-radius: 6px;
-            border: 1px solid #d9d9d9;
-            color: rgba(0, 0, 0, 0.65);
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-              color: #40a9ff;
-              border-color: #40a9ff;
-            }
-
-            & > span {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  & .mask {
-    transition: all 0.3s ease-in-out;
-    opacity: 0;
-    visibility: hidden;
-
-    &.active {
-      visibility: visible;
-      opacity: 1;
-
-      & .save-box {
-        animation: fadeInUp 0.6s ease-in-out;
-      }
-    }
-
-    & .save-box {
-      width: 380px;
-      height: 380px;
-      border-radius: 6px;
-      background: #fff;
-      padding: 20px;
-      padding-top: 0;
-
-      & .qrcode-box {
-        width: 100%;
-        flex: 8.8;
-
-        & .code {
-          width: 240px;
-          height: 240px;
-          background-image: url('../../assets/code.png');
-        }
-      }
-    }
-
-    & .save-btn {
-      width: 40%;
-      margin: auto;
-      flex: 1.2;
-      background-color: $info;
-      border-radius: 6px;
-      transition: all 0.3s ease-in-out;
-      opacity: 1;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      & .save {
-        color: #fff;
-        font-size: 19.5px;
-        letter-spacing: 2px;
       }
     }
   }

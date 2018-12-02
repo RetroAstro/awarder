@@ -13,10 +13,6 @@ export const requestLogin = async (data) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    data: JSON.stringify(
-      Object.assign({
-        _csrf: token
-      }, data)
-    )
+    data: JSON.stringify({ ...data, _csrf: token })
   })
 }

@@ -54,6 +54,7 @@
 
         & .ac-name {
           font-size: 17px;
+          margin-right: 50px;
         }
 
         & .ac-ipt {
@@ -126,18 +127,14 @@
                 content: '';
                 width: 0;
                 height: 0;
-                border-right: 10px solid transparent;
-                border-top: 10px solid rgba(102, 175, 233, 0.6);
-                border-bottom: 10px solid transparent;
-                border-left: 10px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid rgba(102, 175, 233, 0.6);
+                border-bottom: 8px solid transparent;
+                border-left: 8px solid transparent;
                 border-radius: 4px;
-                transform: translateY(6px);
+                transform: translateY(5px);
               }
             }
-
-            // &:hover .opt-wrap .opt-hide {
-            //   transform: translateY(0);
-            // }
 
             & .opt-wrap {
               position: absolute;
@@ -157,15 +154,24 @@
                 transform: translateY(-70px);
                 cursor: pointer;
 
+                &.active {
+                  transform: translateY(0);
+                }
+
                 & .option {
                   width: 100%;
                   height: 35px;
+
+                  &:hover {
+                    background: rgba(102, 175, 233, 0.2);
+                  }
                 }
 
                 & > div:first-child {
                   position: relative;
 
                   &::after {
+                    z-index: -1;
                     content: '';
                     position: absolute;
                     left: 50%;
@@ -224,9 +230,19 @@
             opacity: 0.6;
             letter-spacing: 1px;
 
+            &.active {
+              opacity: 1;
+              user-select: none;
+              pointer-events: none;
+            }
+
             &:hover {
               opacity: 1;
             }
+          }
+
+          & .file-ipt {
+            display: none;
           }
         }
 
@@ -239,7 +255,7 @@
 
           & .pub-area {
             margin-top: 25px;
-            width: 415px;
+            width: 420px;
             height: 200px;
             resize: none;
             border-radius: 4px;

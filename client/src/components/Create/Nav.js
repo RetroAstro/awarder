@@ -2,7 +2,7 @@ import React from 'react'
 
 const Nav = () => (
   <div className="nav flex-between">
-    <div className="nav-left flex-between">
+    <div className="nav-left flex-start">
       <div className="ac-name">活动名称</div>
       <input
         type="text"

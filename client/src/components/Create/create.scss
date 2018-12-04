@@ -290,5 +290,29 @@
         }
       }
     }
+
+    & .qr-create {
+      margin-top: 40px;
+
+      & .qr-btn {
+        width: 130px;
+        height: 40px;
+        border-radius: 6px;
+        background: $info;
+        opacity: 0.6;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        & > span {
+          color: #fff;
+          font-size: 18px;
+          letter-spacing: 2px;
+        }
+      }
+    }
   }
 }

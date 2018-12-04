@@ -11,6 +11,11 @@ class Upload extends Component {
   }
   readFile = (e) => {
     var file = e.target.files[0]
+    var arr = file.name.split('.')
+    if (arr[arr.length - 1] !== 'xlsx') {
+      alert('请上传 Excel 文件！')
+      return
+    }
     var reader = new FileReader()
     reader.addEventListener('load', (e) => {
       var data = e.target.result

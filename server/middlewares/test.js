@@ -12,8 +12,3 @@ export const initialDB = async () => {
     password: password
   })
 }
-
-export const checkUser = async ({ orz_name, password }) => {
-  const user_info = await UserModel.findOne({ orz_name })
-  return !!(user_info && await bcrypt.compare(password, user_info.password))
-}

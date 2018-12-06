@@ -10,7 +10,7 @@
     "clean": "rimraf client/dist",
     "lint": "eslint --ext .js --ext .jsx -- . ",
     "lint-fix": "eslint --ext .js --ext .jsx --fix -- . ",
-    "lint-scss": "stylelint client/src",
+    "lint-scss": "stylelint client/src/**/*.scss",
     "lint-scss-fix": "stylelint client/src/**/*.scss --fix",
     "server": "nodemon server/index.js"
   },

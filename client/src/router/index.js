@@ -3,8 +3,8 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import routes from './routes'
 
 const Auth = () => {
-  // document.cookie.indexOf('isLogined=yes') > -1
-  return true
+  return document.cookie.indexOf('isLogined') > -1
+  // return true
 }
 
 const DynamicRoute = route => (

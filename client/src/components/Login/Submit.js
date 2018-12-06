@@ -15,7 +15,7 @@ class Submit extends Component {
       orz_name: this.orz.value,
       password: this.psw.value
     })
-    setTimeout(() => this.setState({ status: true }), 200)
+    setTimeout(() => this.setState({ status: true }), 300)
   }
   render () {
     const { data, history } = this.props

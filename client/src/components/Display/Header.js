@@ -21,7 +21,16 @@ const Header = () => (
           <i className="bg-cover-all"></i>
         </div>
       </div>
-      <div className="sign-out-btn flex-center">
+      <div
+        className="sign-out-btn flex-center"
+        onClick={() => {
+          var exp = new Date()
+          exp.setTime(exp.getTime() - 1)
+          document.cookie = `isLogined='';expires=${exp.toGMTString()}`
+          document.cookie = `isLogined.sig='';expires=${exp.toGMTString()}`
+          window.location.reload()
+        }}
+      >
         <span>退出当前账号</span>
       </div>
     </div>

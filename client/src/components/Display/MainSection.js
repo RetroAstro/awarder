@@ -1,8 +1,9 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import AcBox from './AcBox'
 import Mask from './Mask'
 
-const MainSection = () => {
+const MainSection = ({ history }) => {
   var ref = React.createRef()
   var handleClick = (type) => {
     if (type === 'show') {
@@ -19,8 +20,12 @@ const MainSection = () => {
         </div>
         <Mask ref={ref} handleClick={handleClick} />
       </div>
+      <div
+        className="create"
+        onClick={() => history.push('/create')}
+      ></div>
     </div>
   )
 }
 
-export default MainSection
+export default withRouter(MainSection)

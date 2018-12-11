@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Nav = () => (
+const Nav = (props) => (
   <div className="nav flex-between">
     <div className="nav-left flex-start">
       <div className="ac-name">活动名称</div>
@@ -9,7 +9,10 @@ const Nav = () => (
         className="ac-ipt"
       />
     </div>
-    <div className="nav-right flex-center">
+    <div
+      className="nav-right flex-center"
+      onClick={props.handleCreate}
+    >
       <span>创建新类型</span>
     </div>
   </div>

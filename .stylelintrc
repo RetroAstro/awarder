@@ -4,7 +4,7 @@
   "rules": {
     "block-no-empty": null,
     "color-no-invalid-hex": true,
-    "unit-whitelist": ["em", "rem", "%", "px", "vw", "vh", "s", "deg"],
+    "unit-whitelist": ["em", "rem", "%", "px", "vw", "vh", "s", "deg", "fr"],
     "selector-list-comma-newline-after": ["never-multi-line"],
     "no-descending-specificity": null
   }

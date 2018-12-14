@@ -32,6 +32,7 @@
           position: relative;
           padding: 0 10px;
           transform: translateY(2px);
+          font-size: 16px;
 
           & .selected {
             width: 100%;
@@ -109,6 +110,10 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
 
+        & > span {
+          font-size: 16px;
+        }
+
         &:hover {
           color: #40a9ff;
           border-color: #40a9ff;
@@ -128,6 +133,8 @@
     border-radius: 3px;
     padding: 20px;
     z-index: 10;
+    margin-bottom: 30px;
+    font-size: 14px;
 
     & .feed-nav {
       display: grid;

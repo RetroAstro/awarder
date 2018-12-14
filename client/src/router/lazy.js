@@ -16,6 +16,11 @@ export const Create = Loadable({
   loading: Loading
 })
 
+export const Success = Loadable({
+  loader: () => import('@comp/Success'),
+  loading: Loading
+})
+
 export const Feedback = Loadable({
   loader: () => import('@comp/Feedback'),
   loading: Loading

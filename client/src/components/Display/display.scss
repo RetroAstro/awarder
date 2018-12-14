@@ -60,6 +60,10 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
 
+        & > span {
+          font-size: 16px;
+        }
+
         &:hover {
           color: #40a9ff;
           border-color: #40a9ff;

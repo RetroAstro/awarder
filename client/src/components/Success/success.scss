@@ -1,0 +1,130 @@
+.success {
+  color: rgba(0, 0, 0, 0.65);
+
+  & .header {
+    height: 70px;
+    position: relative;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    margin-bottom: 40px;
+    z-index: 22;
+
+    & .middle {
+      min-width: 1200px;
+      width: 95%;
+
+      & .ac-name > span {
+        font-size: 26px;
+        font-weight: 550;
+        color: #34495e;
+      }
+
+      & .back {
+        width: 116px;
+        height: 35px;
+        border-radius: 6px;
+        border: 1px solid #d9d9d9;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        & > span {
+          font-size: 16px;
+        }
+
+        &:hover {
+          color: #40a9ff;
+          border-color: #40a9ff;
+        }
+      }
+    }
+  }
+
+  & .main {
+    position: relative;
+    margin: auto;
+    width: 960px;
+    z-index: 10;
+    margin-bottom: 30px;
+
+    & .save-wrap {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      background-color: #fff;
+      box-shadow: rgba(0, 21, 41, 0.12) 0 1px 2px;
+      border-radius: 3px;
+      margin: auto;
+
+      & .save-box {
+        width: 200px;
+        height: 260px;
+        margin: auto;
+        position: relative;
+
+        & .qr-code {
+          width: 100%;
+          height: 200px;
+          background-image: url('../../assets/code.png');
+        }
+
+        & .save-btn {
+          width: 100%;
+          height: 45px;
+          border-radius: 4px;
+          background: $info;
+          color: #fff;
+          font-size: 19px;
+          opacity: 0.6;
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    & .fail {
+      width: 100%;
+      min-height: 300px;
+      background-color: #fff;
+      box-shadow: rgba(0, 21, 41, 0.12) 0 1px 2px;
+      border-radius: 3px;
+      margin-top: 40px;
+      padding: 25px;
+      font-size: 16px;
+
+      & .mes {
+        width: 100%;
+        position: relative;
+        margin-bottom: 25px;
+
+        & > span {
+          font-size: 20px;
+        }
+      }
+
+      & .fail-nav {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 40px;
+        background: #fafafa;
+
+        & > div {
+          border: 1px solid #ebeef5;
+          border-right: 0;
+        }
+
+        & > div:last-child {
+          border-right: 1px solid #ebeef5;
+        }
+      }
+
+      & .table-box {
+        width: 100%;
+        position: relative;
+      }
+    }
+  }
+}

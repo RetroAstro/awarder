@@ -16,12 +16,12 @@ export const validateLogin = async (ctx) => {
       { httpOnly: false }
     )
     ctx.body = JSON.stringify({
-      state: 'login success',
+      msg: 'login success',
       loginCode: 1
     })
   } else {
     ctx.body = JSON.stringify({
-      state: 'login failed',
+      msg: 'login failed',
       loginCode: 0
     })
   }

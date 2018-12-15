@@ -1,18 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
+import { Provider } from 'unstated'
 import '@babel/polyfill'
 
 import App from './components/App'
-import reducer from './reducers'
 import './scss/index.scss'
 
-const store = createStore(reducer, applyMiddleware(thunk))
-
 render(
-  <Provider store={store}>
+  <Provider>
     <App />
   </Provider>,
   document.getElementById('root')

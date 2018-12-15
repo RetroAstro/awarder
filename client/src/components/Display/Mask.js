@@ -10,22 +10,16 @@ const Mask = (props, ref) => (
   >
     <div className="save-box flex-col-between">
       <div className="qrcode-box flex-center">
-        <div className="code bg-cover-all">
-          <a
-            ref={el => { download = el }}
-            href="test.jpg"
-            download="test.jpg"
-          />
-        </div>
+        <div className="code bg-cover-all"></div>
       </div>
-      <div
-        className="save-btn flex-center"
-        onClick={() => {
-          download.click()
-          props.handleClick('hide')
-        }}
-      >
-        <span className="save">点击保存</span>
+      <div className="save-btn">
+        <span className="save translate-center">
+          点击保存
+        </span>
+        <a
+          href="test.jpg"
+          download="test.jpg"
+        />
       </div>
     </div>
   </div>

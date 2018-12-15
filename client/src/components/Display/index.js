@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from './Header'
-import MainSection from './MainSection'
+import Main from './Main'
 import './display.scss'
 
 const Display = () => (
   <div className="display">
     <Header />
-    <MainSection />
+    <Main />
   </div>
 )
 

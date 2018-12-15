@@ -68,6 +68,7 @@
         }
 
         & .save-btn {
+          position: relative;
           width: 100%;
           height: 45px;
           border-radius: 4px;
@@ -77,6 +78,17 @@
           opacity: 0.6;
           transition: all 0.3s ease-in-out;
           cursor: pointer;
+
+          & > span {
+            white-space: nowrap;
+            pointer-events: none;
+          }
+
+          & > a {
+            width: 100%;
+            height: 100%;
+            display: block;
+          }
 
           &:hover {
             opacity: 1;

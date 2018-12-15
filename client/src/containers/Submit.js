@@ -1,19 +1,14 @@
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import Submit from '@comp/Login/Submit'
-import { login } from '../actions'
+import { Container } from 'unstated'
+import { requestLogin } from '../apis'
 
-const mapStateToProps = state => ({
-  data: state.data
-})
+class SubmitContainer extends Container {
+  state = {
+    msg: '',
+    loginCode: ''
+  }
+  login (data) {
+    requestLogin(data).then(res => this.setState({ ...res.data }))
+  }
+}
 
-const mapDispatchToProps = dispatch => ({
-  login: (data) => dispatch(login(data))
-})
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Submit)
-)
+export default SubmitContainer

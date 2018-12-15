@@ -17,7 +17,7 @@ module.exports = {
     modules: [resolve('src'), resolve('../node_modules')],
     alias: {
       '@comp': resolve('src/components'),
-      '@comt': resolve('src/containers')
+      '@cont': resolve('src/containers')
     }
   },
   module: {

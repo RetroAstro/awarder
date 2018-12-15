@@ -116,7 +116,7 @@
         }
 
         & .ac-box {
-          padding: 12px;
+          padding: 15px;
           background-color: #fff;
 
           & .ac-top {
@@ -153,6 +153,7 @@
 
           & .ac-bottom {
             width: 100%;
+            transform: translateY(-5px);
 
             & > div {
               width: 75px;
@@ -212,6 +213,7 @@
       }
 
       & .save-btn {
+        position: relative;
         width: 40%;
         margin: auto;
         flex: 1.2;
@@ -220,6 +222,17 @@
         transition: all 0.3s ease-in-out;
         opacity: 1;
         cursor: pointer;
+
+        & > span {
+          white-space: nowrap;
+          pointer-events: none;
+        }
+
+        & > a {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
 
         &:hover {
           opacity: 0.8;

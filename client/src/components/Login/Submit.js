@@ -2,23 +2,21 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 
 class Submit extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      status: false
-    }
+  state = {
+    status: false
   }
   handleSubmit = () => {
+    const { submit } = this.props
     if (this.orz.value === '') this.orz_err.classList.add('active')
     if (this.psw.value === '') this.psw_err.classList.add('active')
-    this.orz.value && this.psw.value && this.props.login({
+    this.orz.value && this.psw.value && submit.login({
       orz_name: this.orz.value,
       password: this.psw.value
     })
     setTimeout(() => this.setState({ status: true }), 300)
   }
   render () {
-    const { data, history } = this.props
+    const { submit, history } = this.props
     return (
       <>
       <div className="title">领奖工具后台管理系统</div>
@@ -53,11 +51,11 @@ class Submit extends Component {
             classNames(
               'login-failed',
               { show: this.state.status },
-              { active: data.state === 'login failed' }
+              { active: submit.state.msg === 'login failed' }
             )
           }>组织名称或密码有误!</div>
       </div>
-      { data.loginCode ? history.push('/display') : null }
+      { submit.state.loginCode ? history.push('/display') : null }
     </>
     )
   }

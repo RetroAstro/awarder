@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'unstated'
+
 import '@babel/polyfill'
 
 import App from './components/App'

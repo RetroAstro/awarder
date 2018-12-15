@@ -1,7 +1,5 @@
 import React from 'react'
 
-var download
-
 const Mask = (props, ref) => (
   <div
     ref={ref}

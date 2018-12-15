@@ -3,9 +3,6 @@ import classNames from 'classnames'
 import Xlsx from 'xlsx'
 
 class Upload extends Component {
-  static props = {
-    file_input: ''
-  }
   state = {
     status: '点击上传'
   }
@@ -31,6 +28,7 @@ class Upload extends Component {
     })
   }
   render () {
+    var file_input
     return (
       <div className="upload flex-start">
         <div className="name">名单上传</div>
@@ -40,7 +38,7 @@ class Upload extends Component {
             'flex-center',
             { active: this.state.status === '上传成功' }
           )}
-          onClick={() => this.file_input.click()}
+          onClick={() => file_input.click()}
         >
           <span>{this.state.status}</span>
         </div>
@@ -48,7 +46,7 @@ class Upload extends Component {
           type="file"
           onChange={this.readFile}
           className="file-ipt"
-          ref={el => { this.file_input = el }}
+          ref={el => { file_input = el }}
         />
       </div>
     )

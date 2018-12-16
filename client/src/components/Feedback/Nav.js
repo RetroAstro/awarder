@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 
 var arr = [
   '序号',
@@ -13,21 +12,8 @@ var arr = [
   '领奖情况'
 ]
 
-const Nav = (props) => (
+const Nav = () => (
   <div className="feed-nav">
-    <div className="check-all">
-      <span
-        className={classNames(
-          'check-box',
-          'flex-center',
-          { active: props.activeAll }
-        )}
-        onClick={() => props.handleClick('all')}
-      >
-        <i></i>
-      </span>
-      <span className="translate-center">全选</span>
-    </div>
     {
       arr.map((item, i) => (
         <div

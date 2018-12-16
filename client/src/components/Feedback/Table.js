@@ -1,5 +1,6 @@
 import React from 'react'
-import classNames from 'classnames'
+
+var initial = new Array(13).fill(0)
 
 var arr = [
   '1',
@@ -13,23 +14,12 @@ var arr = [
   '已领取'
 ]
 
-const Table = (props) => (
+const Table = () => (
   <div className="table-box">
     <ul className="table-list table-row">
       {
-        props.rowList.map((row, i) =>
+        initial.map((row, i) =>
           <li className="table-row" key={i}>
-            <div className="flex-center">
-              <span
-                className={classNames(
-                  'flex-center',
-                  { active: row }
-                )}
-                onClick={() => props.handleClick(i)}
-              >
-                <i></i>
-              </span>
-            </div>
             {
               arr.map((item, i) =>
                 <div className="flex-center" key={i}>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 class Header extends Component {
     state = {
-      selected: '指定类型'
+      selected: '全部类型'
     }
     render () {
       var wrap
-      var arr = ['指定类型', '非指定类型']
+      var arr = ['全部类型', '指定类型', '非指定类型']
       return (
         <div className="header flex-center">
           <div className="middle flex-between">
@@ -40,14 +41,17 @@ class Header extends Component {
                         >{item}</div>
                       )
                     }
-                    <div className="line">
-                    </div>
+                    <div className="line1"></div>
+                    <div className="line2"></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="export flex-center">
-              <span>导出</span>
+            <div
+              className="back flex-center"
+              onClick={() => this.props.history.push('/display')}
+            >
+              <span>返回主页</span>
             </div>
           </div>
         </div>
@@ -55,4 +59,4 @@ class Header extends Component {
     }
 }
 
-export default Header
+export default withRouter(Header)

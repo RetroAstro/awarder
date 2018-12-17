@@ -14,9 +14,7 @@ const AcBox = (props) => (
     </div>
     <div className="ac-middle flex-center">
       <div className="ac-info flex-col-between">
-        <div className="ac-name">
-                最美班级墙
-        </div>
+        <div className="ac-name">{props.acname}</div>
         {/* <div className="ac-create-time">
                 10月29日
         </div> */}
@@ -28,7 +26,10 @@ const AcBox = (props) => (
     )}>
       { props.status === 'processing'
         ? <>
-      <div className="end-btn flex-center">
+      <div
+        className="end-btn flex-center"
+        onClick={() => props.deleteBox(props.acname)}
+      >
         <span>结束活动</span>
       </div>
       <div

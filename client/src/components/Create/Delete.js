@@ -1,10 +1,11 @@
 import React from 'react'
+
 import { Context } from './Context'
 
 const Delete = (props) => (
   <div className="delete flex-end">
     <Context.Consumer>
-      {deleteBox => (
+      {(deleteBox) => (
         <div
           className="del flex-center"
           onClick={() => deleteBox(props.mark)}

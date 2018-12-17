@@ -1,6 +1,7 @@
 import React from 'react'
-import UnTypeBox from './UnTypeBox'
+
 import TypeBox from './TypeBox'
+import UnTypeBox from './UnTypeBox'
 
 const BoxList = (props) => (
   <div className="type-box-list">

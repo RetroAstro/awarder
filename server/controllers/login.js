@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs'
+
 import UserModel from '../models/user'
 import encryptSignature from '../helpers/encrypt'
 

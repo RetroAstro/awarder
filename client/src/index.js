@@ -5,6 +5,7 @@ import { Provider } from 'unstated'
 import '@babel/polyfill'
 
 import App from './components/App'
+
 import './scss/index.scss'
 
 render(

@@ -1,8 +1,8 @@
 import React from 'react'
 
-var initial = new Array(13).fill(0)
+const initial = new Array(13).fill(0)
 
-var arr = [
+const arr = [
   '1',
   '指定类型',
   '肖畅',

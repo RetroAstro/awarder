@@ -1,5 +1,11 @@
 import React from 'react'
 
+import listener from '@utils/listener'
+
+var acname
+
+listener.on('start', () => listener.emit('getAcName', acname.value))
+
 const Nav = (props) => (
   <div className="nav flex-between">
     <div className="nav-left flex-start">
@@ -7,6 +13,7 @@ const Nav = (props) => (
       <input
         type="text"
         className="ac-ipt"
+        ref={el => { acname = el }}
       />
     </div>
     <div

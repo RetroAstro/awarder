@@ -1,6 +1,6 @@
 import React from 'react'
 
-var arr = ['指定类型', '非指定类型']
+const arr = ['指定类型', '非指定类型']
 
 const Choose = (props) => (
   <div className="shadow-box choose">

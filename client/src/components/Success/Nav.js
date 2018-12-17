@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-var arr = [
+const arr = [
   '姓名',
   '学院',
   '学号',

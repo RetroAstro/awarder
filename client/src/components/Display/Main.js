@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { Subscribe } from 'unstated'
+
 import AcBox from './AcBox'
 import Mask from './Mask'
+import AcBoxContainer from '@cont/AcBox'
 
 class Main extends Component {
-  state = {
-    status: 'processing'
-  }
   handleClick = (type) => {
     if (type === 'show') {
       this.ref.current.classList.add('active')
@@ -20,11 +20,20 @@ class Main extends Component {
       <div className="main">
         <div className="section">
           <div className="sec-row flex-start">
-            <AcBox
-              history={this.props.history}
-              status={this.state.status}
-              handleClick={this.handleClick}
-            />
+            <Subscribe to={[AcBoxContainer]}>
+              {(acbox) => (
+                acbox.state.acboxlist.length
+                  ? acbox.state.acboxlist.map((box, i) => (
+                    <AcBox
+                      {...box}
+                      key={i}
+                      deleteBox={acbox.deleteBox}
+                      history={this.props.history}
+                      handleClick={this.handleClick}
+                    />
+                  )) : null
+              )}
+            </Subscribe>
           </div>
           <Mask
             ref={this.ref}

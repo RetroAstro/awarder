@@ -1,6 +1,6 @@
 import React from 'react'
 
-var arr = [
+const arr = [
   '序号',
   '领奖类型',
   '姓名',

@@ -1,6 +1,7 @@
 import React from 'react'
-import Table from './Table'
+
 import Nav from './Nav'
+import Table from './Table'
 
 const Fail = () => (
   <div className="fail">

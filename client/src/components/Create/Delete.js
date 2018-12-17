@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Context } from './Context'
 
 const Delete = (props) => (

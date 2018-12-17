@@ -1,7 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Subscribe } from 'unstated'
-
 import Submit from './Submit'
 import SubmitContainer from '@cont/Submit'
 

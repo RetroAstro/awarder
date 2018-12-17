@@ -1,5 +1,4 @@
 import React from 'react'
-
 import TypeBox from './TypeBox'
 import UnTypeBox from './UnTypeBox'
 

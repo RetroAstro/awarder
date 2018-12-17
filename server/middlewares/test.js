@@ -1,5 +1,4 @@
 import bcrypt from 'bcryptjs'
-
 import UserModel from '../models/user'
 
 const ORZ = 'Redrock'

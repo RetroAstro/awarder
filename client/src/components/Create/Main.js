@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import Nav from './Nav'
 import BoxList from './BoxList'
 import Button from './Button'

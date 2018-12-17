@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import Nav from './Nav'
 import Table from './Table'
 import Pagination from './Pagination'

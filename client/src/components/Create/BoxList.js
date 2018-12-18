@@ -1,22 +1,26 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import TypeBox from './TypeBox'
 import UnTypeBox from './UnTypeBox'
 
-const BoxList = (props) => (
-  <div className="type-box-list">
-    {props.typelist.map((mark, i) => (
-      <TypeBox
-        key={i}
-        mark={mark}
-      />
-    ))}
-    {props.untypelist.map((mark, i) => (
-      <UnTypeBox
-        key={i}
-        mark={mark}
-      />
-    ))}
-  </div>
-)
+class BoxList extends PureComponent {
+  render () {
+    return (
+      <div className="type-box-list">
+        {this.props.typelist.map((mark, i) => (
+          <TypeBox
+            key={i}
+            mark={mark}
+          />
+        ))}
+        {this.props.untypelist.map((mark, i) => (
+          <UnTypeBox
+            key={i}
+            mark={mark}
+          />
+        ))}
+      </div>
+    )
+  }
+}
 
 export default BoxList

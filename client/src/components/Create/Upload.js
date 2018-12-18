@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import Xlsx from 'xlsx'
+import memo from '@utils/memo'
+
+var data
 
 class Upload extends Component {
   state = {
@@ -15,9 +18,9 @@ class Upload extends Component {
     }
     var reader = new FileReader()
     reader.addEventListener('load', (e) => {
-      var data = e.target.result
-      var wb = Xlsx.read(data, { type: 'binary' })
-      var sheet = Xlsx.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
+      var result = e.target.result
+      var wb = Xlsx.read(result, { type: 'binary' })
+      data = Xlsx.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
       this.setState({
         status: '上传成功'
       })
@@ -29,6 +32,12 @@ class Upload extends Component {
   }
   render () {
     var file_input
+    var mark = this.props.mark
+    memo.on('save', function () {
+      this.emit(mark, {
+        student_list: data
+      })
+    }, mark)
     return (
       <div className="upload flex-start">
         <div className="name">名单上传</div>

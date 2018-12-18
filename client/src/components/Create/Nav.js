@@ -1,9 +1,11 @@
 import React from 'react'
-import listener from '@utils/listener'
+import memo from '@utils/memo'
 
 var acname
 
-listener.on('start', () => listener.emit('getAcName', acname.value))
+memo.on('save', function () {
+  this.data.acname = acname.value
+})
 
 const Nav = (props) => (
   <div className="nav flex-between">

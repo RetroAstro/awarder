@@ -2,34 +2,34 @@ class Listener {
   constructor () {
     this.eventList = {}
   }
-  on (event, fn) {
+  on (event, fn, mark) {
     if (!this.eventList[event]) this.eventList[event] = []
-    if (fn.name) {
-      let obj = {}
+    var obj = {}
+    if (mark) {
+      obj[mark] = fn
+      fn = obj
+    } else if (fn.name) {
       obj[fn.name] = fn
       fn = obj
     }
     this.eventList[event].push(fn)
   }
-  remove (event, fn) {
-    if (!fn) return console.error('Choose a named function to remove!')
-    this.eventList[event].map((item, index) => {
-      if (typeof item === 'object' && item[fn.name]) {
-        this.eventList[event].splice(index, 1)
-      }
-    })
+  remove (event, mark, fn = () => {}) {
+    this.eventList[event] = this.eventList[event]
+      .filter((item) => typeof item === 'object' ? Object.keys(item)[0] !== (mark || fn.name) : item)
+  }
+  removeAll (event) {
+    delete this.eventList[event]
   }
   emit (event, data) {
     this.eventList[event].map((fn) => {
       if (typeof fn === 'object') {
-        Object.values(fn).map((f) => f(data))
+        Object.values(fn).map((f) => f.call(this, data))
       } else {
-        fn(data)
+        fn.call(this, data)
       }
     })
   }
 }
 
-const listener = new Listener()
-
-export default listener
+export default Listener

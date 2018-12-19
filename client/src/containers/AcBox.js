@@ -6,12 +6,17 @@ class AcBoxContainer extends Container {
     }
     addBox (data) {
       this.setState({
-        acboxlist: [...this.state.acboxlist, data]
+        acboxlist: [...this.state.acboxlist].concat(data)
       })
     }
     deleteBox (data) {
       this.setState({
         acboxlist: this.state.acboxlist.filter(box => box.acname !== data.actime)
+      })
+    }
+    clearAll = async () => {
+      await this.setState({
+        acboxlist: []
       })
     }
 }

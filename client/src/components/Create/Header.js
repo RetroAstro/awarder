@@ -4,10 +4,10 @@ import memo from '@utils/memo'
 import storage from '@utils/storage'
 
 const savetoLocal = (history) => {
+  var list = storage.getLocal('dataList') || []
   memo.emit('save')
-  console.log(memo.data)
-  storage.removeLocal('data')
-  storage.setLocal('data', memo.data)
+  list = list.filter(item => item.acname !== memo.data.acname)
+  storage.setLocal('dataList', [...list, memo.data])
   memo.data.acname ? history.push('/display') : alert('请输入活动名称！')
 }
 

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import Nav from './Nav'
 import BoxList from './BoxList'
 import Button from './Button'
 import Choose from './Choose'
 import { Context } from './Context'
+import local from '@utils/local'
 
 class Main extends Component {
   state = {
@@ -17,12 +19,12 @@ class Main extends Component {
     })
   }
   handleChoose = (val) => {
-    if (val === '指定类型') {
+    if (val === 'type') {
       this.setState({
         show: false,
         typelist: [...this.state.typelist, new Date().getTime() + '-' + val]
       })
-    } else if (val === '非指定类型') {
+    } else if (val === 'untype') {
       this.setState({
         show: false,
         untypelist: [...this.state.untypelist, new Date().getTime() + '-' + val]
@@ -30,14 +32,29 @@ class Main extends Component {
     }
   }
   deleteBox = (val) => {
-    var type = val.split('-')[1]
-    if (type === '指定类型') {
+    var t = val.split('-')[1]
+    if (t === 'type') {
       this.setState({
         typelist: [...this.state.typelist.filter(item => item !== val)]
       })
-    } else if (type === '非指定类型') {
+    } else if (t === 'untype') {
       this.setState({
         untypelist: [...this.state.untypelist.filter(item => item !== val)]
+      })
+    }
+  }
+  componentDidMount () {
+    var params = new URLSearchParams(this.props.location.search)
+    var acname = params.get('acname')
+    var list = local.getLocal('dataList')
+    if (list.length) {
+      list.map((item) => {
+        if (item.acname === acname) {
+          this.setState({
+            typelist: item.typelist.map(box => box.mark).filter(mark => mark),
+            untypelist: item.untypelist.map(box => box.mark).filter(mark => mark)
+          })
+        }
       })
     }
   }
@@ -58,4 +75,4 @@ class Main extends Component {
   }
 }
 
-export default Main
+export default withRouter(Main)

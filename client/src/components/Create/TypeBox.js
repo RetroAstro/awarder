@@ -8,11 +8,13 @@ import memo from '@utils/memo'
 class TypeBox extends PureComponent {
   init () {
     var boxInfo = []
-    memo.on(this.props.mark, function (val) {
+    var mark = this.props.mark
+    memo.on(mark, function (val) {
       boxInfo.push(val)
       if (boxInfo.length === 3) {
-        var box = Object.assign({}, ...boxInfo)
+        var box = Object.assign({ mark }, ...boxInfo)
         this.data.typelist.push(box)
+        boxInfo = []
       }
     })
   }

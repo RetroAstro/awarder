@@ -1,6 +1,6 @@
 import React from 'react'
 
-const arr = ['指定类型', '非指定类型']
+const arr = ['type', 'untype']
 
 const Choose = (props) => (
   <div className="shadow-box choose">
@@ -14,7 +14,7 @@ const Choose = (props) => (
               className="flex-center"
               onClick={() => props.handleChoose(item)}
             >
-              <span>{item}</span>
+              <span>{item === 'type' ? '指定类型' : '非指定类型'}</span>
             </div>
           )
         }

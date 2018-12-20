@@ -5,7 +5,9 @@ import memo from '@utils/memo'
 
 class UnTypeBox extends PureComponent {
   init () {
-    memo.on(this.props.mark, function (val) {
+    var mark = this.props.mark
+    memo.on(mark, function (val) {
+      val.mark = mark
       this.data.untypelist.push(val)
     })
   }

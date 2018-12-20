@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Subscribe } from 'unstated'
 import AcBox from './AcBox'
 import Mask from './Mask'
-import storage from '@utils/storage'
+import local from '@utils/local'
 import AcBoxContainer from '@cont/AcBox'
 
 const sharedAcBoxContainer = new AcBoxContainer()
@@ -18,8 +18,8 @@ class Main extends Component {
   }
   componentDidMount () {
     var acbox = sharedAcBoxContainer
-    var list = storage.getLocal('dataList')
-    if (list) {
+    var list = local.getLocal('dataList')
+    if (list.length) {
       acbox
         .clearAll()
         .then(() => {

@@ -9,6 +9,14 @@ class Upload extends Component {
   state = {
     status: '点击上传'
   }
+  init () {
+    var mark = this.props.mark
+    memo.on('save', function () {
+      this.emit(mark, {
+        student_list: data
+      })
+    }, mark)
+  }
   readFile = (e) => {
     var file = e.target.files[0]
     var arr = file.name.split('.')
@@ -31,13 +39,8 @@ class Upload extends Component {
     })
   }
   render () {
+    this.init()
     var file_input
-    var mark = this.props.mark
-    memo.on('save', function () {
-      this.emit(mark, {
-        student_list: data
-      })
-    }, mark)
     return (
       <div className="upload flex-start">
         <div className="name">名单上传</div>

@@ -41,7 +41,7 @@ const AcBox = (props) => (
         </>
         : <div
           className="edit-btn flex-center"
-          onClick={() => props.history.push('/create')}
+          onClick={() => props.history.push(`/create?acname=${props.acname}`)}
         >
           <span>继续编辑</span>
         </div>

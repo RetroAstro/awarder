@@ -9,8 +9,14 @@ const Delete = ({ mark }) => (
         <div
           className="del flex-center"
           onClick={() => {
+            var type = mark.split('-')[1]
+            var list = memo.data[`${type}list`]
+            list.map((box, i) => {
+              if (box.mark === mark) {
+                list.splice(i, 1)
+              }
+            })
             deleteBox(mark)
-            memo.removeAll(mark)
             memo.remove('save', mark)
           }}
         >

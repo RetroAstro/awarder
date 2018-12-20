@@ -1,14 +1,22 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import memo from '@utils/memo'
-import storage from '@utils/storage'
+import local from '@utils/local'
 
 const savetoLocal = (history) => {
-  var list = storage.getLocal('dataList') || []
+  var list = local.getLocal('dataList')
   memo.emit('save')
-  list = list.filter(item => item.acname !== memo.data.acname)
-  storage.setLocal('dataList', [...list, memo.data])
-  memo.data.acname ? history.push('/display') : alert('请输入活动名称！')
+  console.log(memo.data)
+  if (memo.data.acname) {
+    list = list.filter(item => item.acname !== memo.data.acname)
+    local.setLocal('dataList', [...list, memo.data])
+    memo.init()
+    memo.clear()
+    history.push('/display')
+  } else {
+    memo.init()
+    alert('请输入活动名称！')
+  }
 }
 
 const Header = (props) => (

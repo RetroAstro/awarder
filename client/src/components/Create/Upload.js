@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import Xlsx from 'xlsx'
-import memo from '@utils/memo'
+import bus from '@utils/bus'
 
 var data
 
@@ -11,7 +11,7 @@ class Upload extends Component {
   }
   init () {
     var mark = this.props.mark
-    memo.on('save', function () {
+    bus.on('save', function () {
       this.emit(mark, {
         student_list: data
       })

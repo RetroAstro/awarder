@@ -1,9 +1,9 @@
 import React from 'react'
-import memo from '@utils/memo'
+import bus from '@utils/bus'
 
 const Award = ({ mark, type }) => {
   var prize
-  memo.on('save', function () {
+  bus.on('save', function () {
     this.emit(mark, {
       type: type,
       prize_name: prize.value

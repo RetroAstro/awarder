@@ -1,4 +1,4 @@
-class Listener {
+class Event {
   constructor () {
     this.eventList = {}
   }
@@ -15,11 +15,8 @@ class Listener {
     this.eventList[event].push(fn)
   }
   remove (event, mark, fn = () => {}) {
-    this.eventList[event].map((item, i) => {
-      if (typeof item === 'object' && Object.keys(item)[0] === (mark || fn.name)) {
-        this.eventList[event].splice(i, 1)
-      }
-    })
+    this.eventList[event] = this.eventList[event]
+      .filter(item => typeof item === 'object' ? Object.keys(item)[0] !== (mark || fn.name) : item)
   }
   clear () {
     Object.keys(this.eventList).map(event => delete this.eventList[event])
@@ -35,4 +32,4 @@ class Listener {
   }
 }
 
-export default Listener
+export default Event

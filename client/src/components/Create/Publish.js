@@ -1,9 +1,9 @@
 import React from 'react'
-import memo from '@utils/memo'
+import bus from '@utils/bus'
 
 const Publish = ({ mark }) => {
   var text
-  memo.on('save', function () {
+  bus.on('save', function () {
     this.emit(mark, {
       push_message: text.value
     })

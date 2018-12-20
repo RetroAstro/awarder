@@ -1,20 +1,19 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import memo from '@utils/memo'
+import bus from '@utils/bus'
 import local from '@utils/local'
 
 const savetoLocal = (history) => {
   var list = local.getLocal('dataList')
-  memo.emit('save')
-  console.log(memo.data)
-  if (memo.data.acname) {
-    list = list.filter(item => item.acname !== memo.data.acname)
-    local.setLocal('dataList', [...list, memo.data])
-    memo.init()
-    memo.clear()
+  bus.emit('save')
+  if (bus.data.acname) {
+    list = list.filter(item => item.acname !== bus.data.acname)
+    local.setLocal('dataList', [...list, bus.data])
+    bus.init()
+    bus.clear()
     history.push('/display')
   } else {
-    memo.init()
+    bus.init()
     alert('请输入活动名称！')
   }
 }

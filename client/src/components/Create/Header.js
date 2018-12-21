@@ -11,6 +11,7 @@ const savetoLocal = (history) => {
     local.setLocal('dataList', [...list, bus.data])
     bus.init()
     bus.clear()
+    bus.removeAll('show')
     history.push('/display')
   } else {
     bus.init()

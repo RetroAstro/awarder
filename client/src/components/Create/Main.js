@@ -5,6 +5,7 @@ import BoxList from './BoxList'
 import Button from './Button'
 import Choose from './Choose'
 import { Context } from './Context'
+import bus from '@utils/bus'
 import local from '@utils/local'
 
 class Main extends Component {
@@ -51,8 +52,10 @@ class Main extends Component {
       list.map((item) => {
         if (item.acname === acname) {
           this.setState({
-            typelist: item.typelist.map(box => box.mark).filter(mark => mark),
-            untypelist: item.untypelist.map(box => box.mark).filter(mark => mark)
+            typelist: item.typelist.map(box => box.mark),
+            untypelist: item.untypelist.map(box => box.mark)
+          }, () => {
+            bus.emit('show', item)
           })
         }
       })

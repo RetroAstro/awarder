@@ -6,6 +6,9 @@ const Nav = React.memo((props) => {
   bus.on('save', function () {
     this.data.acname = acname.value
   })
+  bus.on('show', function (data) {
+    acname.value = data.acname
+  })
   return (
     <div className="nav flex-between">
       <div className="nav-left flex-start">

@@ -8,6 +8,14 @@ const Publish = ({ mark }) => {
       push_message: text.value
     })
   }, mark)
+  bus.on('show', function (data) {
+    var t = mark.split('-')[1]
+    data[`${t}list`].map((item) => {
+      if (item.mark === mark) {
+        text.value = item.push_message
+      }
+    })
+  }, mark)
   return (
     <div className="publish">
       <div className="name">编辑推送信息</div>

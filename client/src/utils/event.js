@@ -18,6 +18,9 @@ class Event {
     this.eventList[event] = this.eventList[event]
       .filter(item => typeof item === 'object' ? Object.keys(item)[0] !== (mark || fn.name) : item)
   }
+  removeAll (event) {
+    delete this.eventList[event]
+  }
   clear () {
     Object.keys(this.eventList).map(event => delete this.eventList[event])
   }

@@ -9,6 +9,14 @@ const Award = ({ mark, type }) => {
       prize_name: prize.value
     })
   }, mark)
+  bus.on('show', function (data) {
+    var t = mark.split('-')[1]
+    data[`${t}list`].map((item) => {
+      if (item.mark === mark) {
+        prize.value = item.prize_name
+      }
+    })
+  }, mark)
   return (
     <>
       <div className="award-type flex-start">

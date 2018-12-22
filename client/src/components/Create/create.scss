@@ -164,7 +164,7 @@
             opacity: 0.6;
             letter-spacing: 1px;
 
-            &.active {
+            &.disabled {
               opacity: 1;
               user-select: none;
               pointer-events: none;

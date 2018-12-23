@@ -72,7 +72,10 @@ class Main extends Component {
           />
         </Context.Provider>
         <Button />
-        { this.state.show ? <Choose handleChoose={this.handleChoose} /> : null }
+        <Choose
+          active={this.state.show}
+          handleChoose={this.handleChoose}
+        />
       </div>
     )
   }

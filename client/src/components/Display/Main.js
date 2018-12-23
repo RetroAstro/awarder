@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Subscribe } from 'unstated'
 import AcBox from './AcBox'
-import Mask from './Mask'
+import Save from '../../common/Save'
 import local from '@utils/local'
 import AcBoxContainer from '@cont/AcBox'
 
@@ -25,7 +25,7 @@ class Main extends Component {
         .then(() => {
           var data = list.map((item) => ({
             acname: item.acname,
-            status: ''
+            status: 'processing'
           }))
           acbox.addBox(data)
         })
@@ -52,7 +52,7 @@ class Main extends Component {
               )}
             </Subscribe>
           </div>
-          <Mask
+          <Save
             ref={this.ref}
             handleClick={this.handleClick}
           />

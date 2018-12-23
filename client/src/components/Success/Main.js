@@ -1,10 +1,10 @@
 import React from 'react'
-import Save from './Save'
+import Box from './Box'
 import Fail from './Fail'
 
 const Main = () => (
   <div className="main">
-    <Save />
+    <Box />
     <Fail />
   </div>
 )

@@ -1,9 +1,14 @@
 import React from 'react'
+import classNames from 'classnames'
 
 const arr = ['type', 'untype']
 
 const Choose = (props) => (
-  <div className="shadow-box choose">
+  <div className={classNames(
+    'shadow-box',
+    'choose',
+    { active: props.active }
+  )}>
     <div className="choose-box flex-col-between">
       <div className="title">请选择领奖类型</div>
       <div className="type-wrap flex-between">

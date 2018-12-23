@@ -255,6 +255,15 @@
     }
 
     .choose {
+      opacity: 0;
+      visibility: hidden;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.3s ease-in-out;
+      }
+
       .choose-box {
         width: 500px;
         height: 200px;

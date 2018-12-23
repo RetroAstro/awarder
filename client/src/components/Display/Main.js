@@ -23,7 +23,10 @@ class Main extends Component {
       acbox
         .clearAll()
         .then(() => {
-          var data = list.map((item) => ({ acname: item.acname }))
+          var data = list.map((item) => ({
+            acname: item.acname,
+            status: ''
+          }))
           acbox.addBox(data)
         })
     }
@@ -41,7 +44,7 @@ class Main extends Component {
                     <AcBox
                       {...box}
                       key={i}
-                      deleteBox={acbox.deleteBox}
+                      acbox={acbox}
                       history={this.props.history}
                       handleClick={this.handleClick}
                     />

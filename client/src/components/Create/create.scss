@@ -238,10 +238,13 @@
         height: 40px;
         border-radius: 6px;
         background: $info;
-        opacity: 0.6;
         transition: all 0.3s ease-in-out;
         cursor: pointer;
-        pointer-events: none;
+        opacity: 0.6;
+
+        &:hover {
+          opacity: 1;
+        }
 
         & > span {
           color: #fff;

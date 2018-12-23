@@ -28,7 +28,7 @@ const AcBox = (props) => (
         ? <>
       <div
         className="end-btn flex-center"
-        onClick={() => props.deleteBox(props.acname)}
+        onClick={() => props.acbox.deleteBox(props.acname)}
       >
         <span>结束活动</span>
       </div>

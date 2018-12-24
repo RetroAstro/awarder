@@ -8,7 +8,7 @@ const AcBox = (props) => (
       { props.status === 'processing'
         ? <div
           className="qrcode bg-cover-all"
-          onClick={() => props.handleClick('show')}
+          onClick={() => props.handleClick(props.acname)}
         ></div> : null
       }
     </div>

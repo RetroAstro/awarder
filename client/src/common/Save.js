@@ -2,21 +2,39 @@ import React, { Component } from 'react'
 import html2canvas from 'html2canvas'
 
 class Save extends Component {
-  async downloadImage (dom) {
+  downloadImage (dom, next) {
     var filename = dom.getAttribute('filename')
-    var canvas = await html2canvas(dom)
-    canvas.getContext('2d').imageSmoothingEnabled = false
-    var url = canvas.toDataURL()
-    var ele = document.createElement('a')
-    ele.download = filename
-    ele.style.display = 'none'
-    ele.href = url
-    document.body.append(ele)
-    ele.click()
-    document.body.remove(ele)
+    html2canvas(dom)
+      .then((canvas) => {
+        var url = canvas.toDataURL()
+        var ele = document.createElement('a')
+        ele.download = filename
+        ele.style.display = 'none'
+        ele.href = url
+        document.body.append(ele)
+        ele.click()
+        setTimeout(() => document.body.remove(ele) && next(), 2000)
+      })
+  }
+  compose (middlewares) {
+    var i = -1
+    var next = () => {
+      i++
+      if (i < middlewares.length) {
+        middlewares[i](next)
+      } else {
+        this.props.handleClick()
+      }
+    }
+    next()
+  }
+  download = () => {
+    var photos = document.querySelectorAll('.photo-box .photo')
+    var middlewares = []
+    photos.forEach(dom => middlewares.push(next => this.downloadImage(dom, next)))
+    this.compose(middlewares)
   }
   render () {
-    var arr = new Array(9).fill(0)
     return (
       <div
         ref={this.props.myRef}
@@ -27,7 +45,7 @@ class Save extends Component {
           <div className="save-box flex-end">
             <div
               className="save-btn flex-center"
-              onClick={() => this.props.handleClick('hide')}
+              onClick={this.download}
             >
               <span>一键保存</span>
             </div>
@@ -35,23 +53,25 @@ class Save extends Component {
           <div className="photo-box">
             <ul className="photo-list">
               {
-                arr.map((item, i) => (
-                  <li
-                    key={i}
-                    className="photo flex-col-between"
-                  >
-                    <div className="prize-name flex-center">
-                      <span>马克杯</span>
-                    </div>
-                    <div className="qrcode-box flex-center">
-                      <div
-                        className="qrcode bg-cover-all"
-                        style={{ backgroundImage: `url(${require('../assets/code.png')})` }}
-                      >
+                this.props.qrcodeList.length
+                  ? this.props.qrcodeList.map((item, i) => (
+                    <li
+                      key={i}
+                      filename={item.prize}
+                      className="photo flex-col-between"
+                    >
+                      <div className="prize-name flex-center">
+                        <span>{item.prize}</span>
                       </div>
-                    </div>
-                  </li>
-                ))
+                      <div className="qrcode-box flex-center">
+                        <div
+                          className="qrcode bg-cover-all"
+                          style={{ backgroundImage: `url(${item.url})` }}
+                        >
+                        </div>
+                      </div>
+                    </li>
+                  )) : null
               }
             </ul>
           </div>

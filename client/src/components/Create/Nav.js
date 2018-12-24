@@ -3,13 +3,13 @@ import bus from '@utils/bus'
 
 class Nav extends PureComponent {
   componentWillUnmount () {
-    bus.remove('save', 'acname')
+    bus.clear()
   }
   render () {
     var acname
     bus.on('save', function () {
       this.data.acname = acname.value
-    }, 'acname')
+    })
     bus.on('show', function (data) {
       acname.value = data.acname
     })

@@ -9,12 +9,19 @@ import AcBoxContainer from '@cont/AcBox'
 const sharedAcBoxContainer = new AcBoxContainer()
 
 class Main extends Component {
-  handleClick = (type) => {
-    if (type === 'show') {
-      this.ref.current.classList.add('active')
-    } else if (type === 'hide') {
-      this.ref.current.classList.remove('active')
-    }
+  state = {
+    qrcodeList: []
+  }
+  showQRcodes = (acname) => {
+    this.ref.current.classList.add('active')
+    var list = local.getLocal('qrcodeList')
+    list.map((item) => {
+      if (item.acname === acname) {
+        this.setState({
+          qrcodeList: item.qrlist
+        })
+      }
+    })
   }
   componentDidMount () {
     var acbox = sharedAcBoxContainer
@@ -46,7 +53,7 @@ class Main extends Component {
                       key={i}
                       acbox={acbox}
                       history={this.props.history}
-                      handleClick={this.handleClick}
+                      handleClick={this.showQRcodes}
                     />
                   )) : null
               )}
@@ -54,7 +61,8 @@ class Main extends Component {
           </div>
           <Save
             ref={this.ref}
-            handleClick={this.handleClick}
+            qrcodeList={this.state.qrcodeList}
+            handleClick={() => this.ref.current.classList.remove('active')}
           />
         </div>
         <div

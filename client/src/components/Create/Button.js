@@ -48,12 +48,15 @@ class Button extends Component {
     )
   }
   savetoLocal (data) {
-    local.setLocal('qrcodeList', data)
-    local.setLocal('dataList', [bus.data])
+    var acname = bus.data.acname
+    var datalist = local.getLocal('dataList')
+    var qrcodelist = local.getLocal('qrcodeList')
+    local.setLocal('dataList', [...datalist, bus.data])
+    local.setLocal('qrcodeList', [...qrcodelist, { acname: bus.data.acname, qrlist: data }])
     bus.init()
     bus.clear()
     bus.removeAll('show')
-    this.props.history.push('/success')
+    this.props.history.push(`/success?acname=${acname}`)
   }
   handleCreate = () => {
     bus.emit('save')

@@ -7,7 +7,7 @@ const Box = (props) => (
       </div>
       <div
         className="save-btn"
-        onClick={() => props.handleClick('show')}
+        onClick={() => props.handleClick()}
       >
         <span className="translate-center">
           点击查看

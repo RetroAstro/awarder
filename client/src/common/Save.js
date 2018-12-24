@@ -21,9 +21,17 @@ class Save extends Component {
       <div
         ref={this.props.myRef}
         style={{ backgroundColor: '#f4f5f5' }}
-        className="shadow-box mask flex-center"
+        className="shadow-box mask"
       >
         <div className="center">
+          <div className="save-box flex-end">
+            <div
+              className="save-btn flex-center"
+              onClick={() => this.props.handleClick('hide')}
+            >
+              <span>一键保存</span>
+            </div>
+          </div>
           <div className="photo-box">
             <ul className="photo-list">
               {
@@ -46,12 +54,6 @@ class Save extends Component {
                 ))
               }
             </ul>
-          </div>
-          <div
-            className="save-btn flex-center"
-            onClick={() => this.props.handleClick('hide')}
-          >
-            <span>一键保存</span>
           </div>
         </div>
       </div>

@@ -176,83 +176,91 @@
           }
         }
       }
-    }
 
-    & .mask {
-      transition: all 0.3s ease-in-out;
-      opacity: 0;
-      visibility: hidden;
+      & .mask {
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
 
-      &.active {
-        visibility: visible;
-        opacity: 1;
-      }
+        &.active {
+          visibility: visible;
+          opacity: 1;
+        }
 
-      & .center {
-        position: relative;
+        &.active .photo-box {
+          animation: bounceIn 1s ease-in-out;
+        }
 
-        & .photo-box {
-          width: 900px;
-          height: 650px;
-          padding: 20px;
-          overflow: scroll;
+        & .center {
+          position: relative;
+          width: 100%;
+          height: 100%;
 
-          & .photo-list {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
+          & .save-box {
+            width: 100%;
+            min-width: 1200px;
+            height: 50px;
 
-            & .photo {
-              width: 230px;
-              height: 280px;
-              padding: 10px;
-              margin-bottom: 50px;
-              background: #fff;
-              border-radius: 4px;
-              box-shadow: rgba(0, 21, 41, 0.12) 0 2px 6px;
+            & .save-btn {
+              width: 110px;
+              height: 35px;
+              border-radius: 6px;
+              background: $info;
+              cursor: pointer;
+              transform: translate(-20px, 10px);
 
-              & .prize-name {
-                width: 100%;
-                height: 50px;
-
-                & > span {
-                  font: 25px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
-                  font-weight: bold;
-                  color: rgba(0, 0, 0, 0.65);
-                }
-              }
-
-              & .qrcode-box {
-                width: 100%;
-                height: 200px;
-
-                & .qrcode {
-                  width: 170px;
-                  height: 170px;
-                }
+              & > span {
+                font-size: 17px;
+                letter-spacing: 2px;
+                color: #fff;
               }
             }
           }
-        }
 
-        & .save-btn {
-          position: absolute;
-          bottom: -50px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 140px;
-          height: 40px;
-          border-radius: 6px;
-          background: $info;
-          opacity: 0.9;
-          transition: opacity 0.3s ease-in-out;
-          cursor: pointer;
+          & .photo-box {
+            width: 900px;
+            height: 650px;
+            padding: 20px;
+            margin: auto;
+            overflow: scroll;
 
-          & > span {
-            color: #fff;
-            font-size: 20px;
-            letter-spacing: 2px;
+            & .photo-list {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              flex-wrap: wrap;
+
+              & .photo {
+                width: 230px;
+                height: 280px;
+                padding: 10px;
+                margin-bottom: 50px;
+                background: #fff;
+                border-radius: 4px;
+                box-shadow: rgba(0, 21, 41, 0.12) 0 2px 6px;
+
+                & .prize-name {
+                  width: 100%;
+                  height: 50px;
+
+                  & > span {
+                    font: 25px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+                    font-weight: bold;
+                    color: rgba(0, 0, 0, 0.65);
+                  }
+                }
+
+                & .qrcode-box {
+                  width: 100%;
+                  height: 200px;
+
+                  & .qrcode {
+                    width: 170px;
+                    height: 170px;
+                  }
+                }
+              }
+            }
           }
         }
       }

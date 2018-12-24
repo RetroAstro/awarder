@@ -5,6 +5,7 @@ const bus = new Event()
 bus.init = function () {
   this.data = {
     acname: '',
+    status: '',
     typelist: [],
     untypelist: []
   }

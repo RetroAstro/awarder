@@ -10,36 +10,58 @@ class Button extends Component {
     this.ts = ['type', 'untype']
   }
   validate () {
-    bus.emit('save')
-    var check = this.ts
-      .every(t => bus.data[`${t}list`].every(item => Object.values(item).every(val => Array.isArray(val) ? val.length : val)))
-    if (this.ts.every(t => !bus.data[`${t}list`].length)) {
-      check = false
+    const isRepeat = () => {
+      var list = local.getLocal('dataList')
+      var repeat = list.some(item => item.acname === bus.data.acname && item.status === 'processing')
+      return repeat
     }
-    if (bus.data.acname && check) {
-      return true
-    } else {
-      alert('请将创建信息填写完整!')
-      bus.init()
+    const isFull = () => {
+      var check = this.ts
+        .every(t => bus.data[`${t}list`]
+          .every(item => Object.values(item)
+            .every(val => Array.isArray(val) ? val.length : val)))
+
+      if (this.ts.every(t => !bus.data[`${t}list`].length)) check = false
+
+      return bus.data.acname && check
+    }
+    if (isRepeat()) {
+      alert('该活动已被创建！')
       return false
     }
+    if (!isFull()) {
+      alert('请将信息填写完整！')
+      return false
+    }
+    return true
+  }
+  generateQRcodeList () {
+    var arr = this.ts.map(t => bus.data[`${t}list`].map(item => item.prize_name))
+    var prizes = [].concat(...arr)
+    return Promise.all(
+      prizes.map(
+        prize => (async () => {
+          var url = await QRcode.toDataURL(prize)
+          return { prize, url }
+        })()
+      )
+    )
+  }
+  savetoLocal (data) {
+    local.setLocal('qrcodeList', data)
+    local.setLocal('dataList', [bus.data])
+    bus.init()
+    bus.clear()
+    bus.removeAll('show')
+    this.props.history.push('/success')
   }
   handleCreate = () => {
-    if (this.validate()) {
-      var arr = this.ts.map(t => bus.data[`${t}list`].map(item => item.prize_name))
-      var prizes = [].concat(...arr)
-      Promise.all(
-        prizes.map(
-          prize => (async () => {
-            var url = await QRcode.toDataURL(prize)
-            return { prize, url }
-          })()
-        )
-      ).then(data => {
-        bus.init()
-        local.setLocal('qrcodeList', data)
-        this.props.history.push('/success')
-      })
+    bus.emit('save')
+    if (!this.validate()) {
+      bus.init()
+    } else {
+      bus.data.status = 'processing'
+      this.generateQRcodeList().then(data => this.savetoLocal(data))
     }
   }
   render () {

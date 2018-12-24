@@ -25,7 +25,7 @@ class Main extends Component {
         .then(() => {
           var data = list.map((item) => ({
             acname: item.acname,
-            status: 'processing'
+            status: item.status
           }))
           acbox.addBox(data)
         })

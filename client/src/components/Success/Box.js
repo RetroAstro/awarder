@@ -1,11 +1,14 @@
 import React from 'react'
 
-const Box = () => (
+const Box = (props) => (
   <div className="save-wrap flex-center">
     <div className="save-box flex-col-between">
       <div className="qr-code bg-cover-all">
       </div>
-      <div className="save-btn">
+      <div
+        className="save-btn"
+        onClick={() => props.handleClick('show')}
+      >
         <span className="translate-center">
           点击查看
         </span>

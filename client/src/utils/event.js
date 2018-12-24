@@ -15,8 +15,10 @@ class Event {
     this.eventList[event].push(fn)
   }
   remove (event, mark, fn = () => {}) {
-    this.eventList[event] = this.eventList[event]
-      .filter(item => typeof item === 'object' ? Object.keys(item)[0] !== (mark || fn.name) : item)
+    if (this.eventList[event]) {
+      this.eventList[event] = this.eventList[event]
+        .filter(item => typeof item === 'object' ? Object.keys(item)[0] !== (mark || fn.name) : item)
+    }
   }
   removeAll (event) {
     delete this.eventList[event]

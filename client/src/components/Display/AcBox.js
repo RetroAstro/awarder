@@ -1,5 +1,16 @@
 import React from 'react'
 import classNames from 'classnames'
+import local from '@utils/local'
+
+const deleteActivity = ({ acname, acbox }) => {
+  var datalist = local.getLocal('dataList')
+  var qrcodelist = local.getLocal('qrcodeList')
+  datalist = datalist.filter(item => item.acname !== acname)
+  qrcodelist = qrcodelist.filter(item => item.acname !== acname)
+  local.setLocal('dataList', datalist)
+  local.setLocal('qrcodeList', qrcodelist)
+  acbox.deleteBox(acname)
+}
 
 const AcBox = (props) => (
   <div className="ac-box">
@@ -28,7 +39,7 @@ const AcBox = (props) => (
         ? <>
       <div
         className="end-btn flex-center"
-        onClick={() => props.acbox.deleteBox(props.acname)}
+        onClick={() => deleteActivity(props)}
       >
         <span>结束活动</span>
       </div>

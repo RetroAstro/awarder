@@ -51,8 +51,9 @@ class Button extends Component {
     var acname = bus.data.acname
     var datalist = local.getLocal('dataList')
     var qrcodelist = local.getLocal('qrcodeList')
+    datalist = datalist.filter(item => item.acname !== acname)
     local.setLocal('dataList', [...datalist, bus.data])
-    local.setLocal('qrcodeList', [...qrcodelist, { acname: bus.data.acname, qrlist: data }])
+    local.setLocal('qrcodeList', [...qrcodelist, { acname: acname, qrlist: data }])
     bus.init()
     bus.clear()
     bus.removeAll('show')

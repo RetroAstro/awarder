@@ -4,16 +4,22 @@ import html2canvas from 'html2canvas'
 class Save extends Component {
   downloadImage (dom, next) {
     var filename = dom.getAttribute('filename')
-    html2canvas(dom)
+    var opts = {
+      logging: false,
+      width: dom.offsetWidth,
+      height: dom.offsetHeight,
+      dpi: window.devicePixelRatio
+    }
+    html2canvas(dom, opts)
       .then((canvas) => {
         var url = canvas.toDataURL()
         var ele = document.createElement('a')
+        ele.href = url
         ele.download = filename
         ele.style.display = 'none'
-        ele.href = url
         document.body.append(ele)
         ele.click()
-        setTimeout(() => document.body.remove(ele) && next(), 2000)
+        setTimeout(() => next(), 1500)
       })
   }
   compose (middlewares) {
